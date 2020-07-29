@@ -25,13 +25,14 @@ with open('word_files/adjectives/28K_adjectives.txt', 'r') as f:
     for line in f:
         data = line.split()
         c.execute('INSERT INTO adjective (adjective) VALUES (?)', (data[0],))
-        conn.commit()
 
 with open('word_files/nouns/91K_nouns.txt', 'r') as f:
     for line in f:
         data = line.split()
         c.execute('INSERT INTO noun (noun) VALUES (?)', (data[0],))
-        conn.commit()
+
+conn.commit()
+
 
 #slow logic but is probably ok for now
 c.execute("select * from adjective")
