@@ -14,14 +14,14 @@ database = 'words.db'
 conn = create_connection(database)
 c = conn.cursor()
 
-# logic to populate db
+#logic to populate db
 c.execute('DROP TABLE IF EXISTS adjective')
 c.execute('CREATE TABLE adjective (adjective TEXT)')
 
 c.execute('DROP TABLE IF EXISTS noun')
 c.execute('CREATE TABLE noun (noun TEXT)')
 
-with open('word_files/adjectives/28K_adjectives.txt', 'r') as f:
+with open('word_files/adjectives/4843_common_adjectives.txt', 'r') as f:
     for line in f:
         data = line.split()
         c.execute('INSERT INTO adjective (adjective) VALUES (?)', (data[0],))
